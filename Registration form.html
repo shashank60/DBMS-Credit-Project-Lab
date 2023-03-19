@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Issue Ticket</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .input-field {
+      width: 50%;
+      margin-right: 20px;
+    }
+    .summary {
+      border: 1px solid #ddd;
+      padding: 20px;
+    }
+    .summary li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+     
+      <img src="C:\Users\asus\Documents\GitHub\DBMS-Credit-Project-Lab\Logo_website.png" class="d-inline-block align-top" alt="">
+    </a>
+  </nav>
+
+
+<!--  width="30" height="30"---> 
+<h1 class="mb-4" font-family='Segoe Ui'>Issue Ticket</h1>
+
+  <div class="container mt-4">
+    <form id="ticketForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ticketID">Ticket ID:</label>
+          <input type="text" class="form-control input-field" id="ticketID" name="ticketID" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="attendeeName">Event Attendee Name:</label>
+          <input type="text" class="form-control input-field" id="attendeeName" name="attendeeName" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="seatNo">Seat No:</label>
+          <input type="text" class="form-control input-field" id="seatNo" name="seatNo" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dateOfEvent">Date of Event:</label>
+          <input type="date" class="form-control input-field" id="dateOfEvent" name="dateOfEvent" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="organizingUnit">Event Organizing Unit:</label>
+          <input type="text" class="form-control input-field" id="organizingUnit" name="organizingUnit" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="paymentStatus">Payment Status:</label>
+          <select class="form-control input-field" id="paymentStatus" name="paymentStatus" required>
+            <option value="">--Select--</option>
+            <option value="paid">Paid</option>
+            <option value="pending">Pending</option>
+            <option value="failed">Failed</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="registrationNumber">Registration Number:</label>
+          <input type="text" class="form-control input-field" id="registrationNumber" name="registrationNumber" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="summary mt-4" style="display: none;">
+      <h2>Summary</h2>
+      <ul>
+        <li><strong>Ticket ID:</strong> <span id="summaryTicketID"></span></li>
+        <li><strong>Event Attendee Name:</strong> <span id="summaryAttendeeName"></span></li>
+        <li><strong>Seat No:</strong> <span id="summarySeatNo"></span></li>
+        <li>
+          <li><strong>Date of Event:</strong> <span id="summaryDateOfEvent"></span></li>
+          <li><strong>Event Organizing Unit:</strong> <span id="summaryOrganizingUnit"></span></li>
+          <li><strong>Payment Status:</strong> <span id="summaryPaymentStatus"></span></li>
+          <li><strong>Registration Number:</strong> <span id="summaryRegistrationNumber"></span></li>
+        </ul>
+      </div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+      $(document).ready(function() {
+        $('#ticketForm').submit(function(event) {
+          event.preventDefault();
+  
+          // Get form data
+          const formData = $(this).serializeArray();
+  
+          // Show summary
+          $('#summaryTicketID').text(formData[0].value);
+          $('#summaryAttendeeName').text(formData[1].value);
+          $('#summarySeatNo').text(formData[2].value);
+          $('#summaryDateOfEvent').text(formData[3].value);
+          $('#summaryOrganizingUnit').text(formData[4].value);
+          $('#summaryPaymentStatus').text(formData[5].value);
+          $('#summaryRegistrationNumber').text(formData[6].value);
+          $('.summary').show();
+  
+          // Show success message
+          Swal.fire({
+            title: 'Success!',
+            text: 'Ticket details shown below',
+            icon: 'success'
+          });
+  
+          // Clear form
+          $(this)[0].reset();
+        });
+      });
+    </script>
+  </body>
+  </html>
+  

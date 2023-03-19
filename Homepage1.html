@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket Management System</title>
+  <style>
+    /* Navigation bar styles */
+    nav {
+      background-color: #0077be;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      display: flex;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      padding: 0 16px;
+    }
+    nav a {
+      color: black;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    nav button {
+      background-color: #FED8B1;
+      border: none;
+      border-radius: 4px;
+      color: black;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      margin-left: 16px;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    nav button:hover {
+      background-color: #FED8B1;
+    }
+    nav button:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0077be;
+    }
+    /* Main content styles */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Ticket Management System</a>
+    <button onclick="window.location.href='Registration form.html';">Create Ticket</button>
+    <button>Log In</button>
+  </nav>
+  <div class="container">
+    <h1>Welcome to the Ticket Management System!</h1>
+    <p>This system allows you to manage your tickets and allocate them manually.</p>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Upcoming Ticket Shows</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/237/200/200" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Concert</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/238/200/200" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Theater Play</h5>
+            <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/239/200/200" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sports Event</h5>
+            <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
