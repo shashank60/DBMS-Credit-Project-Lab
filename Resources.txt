@@ -1,0 +1,3 @@
+https://www.oracletutorial.com/oracle-administration/oracle-database-architecture/
+
+https://mindmajix.com/oracle-dba/oracle-11g-database-architecture-overview
