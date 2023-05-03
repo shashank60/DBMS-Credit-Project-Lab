@@ -9,6 +9,7 @@ const dbConfig = {
 };
 
 let connection;
+let startTime;
 
 async function connect() {
   try {
@@ -25,6 +26,8 @@ async function connect() {
       console.log('Connection is not open');
     }
 
+    startTime = new Date(); // Record the start time
+
     // Start listening for user input
     const rl = readline.createInterface({
       input: process.stdin,
@@ -34,7 +37,10 @@ async function connect() {
     rl.question('Press any key to close the connection...', async () => {
       rl.close();
       await closeConnection();
-      console.log('Connection closed');
+      const endTime = new Date(); // Record the end time
+      const connectionTimeMs = endTime - startTime; // Calculate the connection time in milliseconds
+      const connectionTimeMin = connectionTimeMs / (1000 * 60); // Convert connection time to minutes
+      console.log(`Connection closed. Connection time: ${connectionTimeMin.toFixed(2)} minutes`);
     });
   } catch (err) {
     console.error('Error connecting to Oracle Database:', err);
