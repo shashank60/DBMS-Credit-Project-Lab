@@ -39,6 +39,7 @@ async function connect() {
       await closeConnection();
       const endTime = new Date(); // Record the end time
       const connectionTimeMs = endTime - startTime; // Calculate the connection time in milliseconds
+      
       const connectionTimeMin = connectionTimeMs / (1000 * 60); // Convert connection time to minutes
       console.log(`Connection closed. Connection time: ${connectionTimeMin.toFixed(2)} minutes`);
     });
