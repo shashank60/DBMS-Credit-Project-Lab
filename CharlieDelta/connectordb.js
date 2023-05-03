@@ -21,7 +21,7 @@ async function connect() {
     // Execute a query to check if the connection is open
     const result = await connection.execute('SELECT 1 FROM DUAL');
     if (result.rows.length > 0) {
-      console.log('Connection is open');
+      console.log('Connection is open and live');
     } else {
       console.log('Connection is not open');
     }

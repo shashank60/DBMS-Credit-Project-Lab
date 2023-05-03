@@ -1,6 +1,6 @@
 
 try {
-
+  
 // Import the server file
 require('./connectordb');
 
@@ -8,7 +8,7 @@ require('./connectordb');
 require('./server');
 
 // Import the routes file
-require('./addelement');
+require('./elementcontrol');
 
   } catch (err) {
     console.error('Error executing JavaScript files:', err);
