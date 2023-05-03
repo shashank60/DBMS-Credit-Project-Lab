@@ -4,7 +4,7 @@ const oracledb = require('oracledb');
 
 const dbConfig = {
   user: 'C##BUNNYDRIVE',
-  password: 'Qwerty1',
+  password: 'newpassword',
   connectString: 'localhost'
 };
 
