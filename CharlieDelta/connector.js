@@ -3,7 +3,7 @@ const oracledb = require('oracledb');
 // Connection details
 
 const dbConfig = {
-  user: 'C##BUNNYDRIVE.STUDENTDATA',
+  user: 'C##BUNNYDRIVE',
   password: 'Qwerty1',
   connectString: 'localhost'
 };
@@ -20,7 +20,9 @@ async function testConnection() {
     // Check if the connection is open
     if (connection && connection.isConnected()) {
       console.log('Connection is open');
-    } else {
+    } 
+    
+    else {
       console.log('Connection is not open');
     }
   } catch (err) {
@@ -41,3 +43,4 @@ async function testConnection() {
 
 
  
+testConnection()
