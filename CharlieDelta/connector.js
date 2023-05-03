@@ -1,56 +1,36 @@
 const oracledb = require('oracledb');
 
 // Connection details
+
 const dbConfig = {
-  user: 'your_username',
-  password: 'your_password',
-  connectString: 'your_connect_string'
+  user: 'C##BUNNYDRIVE.STUDENTDATA',
+  password: 'Qwerty1',
+  connectString: 'localhost'
 };
 
-// Data to insert
-const data = {
-  TICKETID: '123456',
-  STUDENT_NAME: 'John Doe',
-  SEAT_NO: 'A12',
-  BOOKING_DATE: new Date(),
-  PAYMENT_STATUS: 'OK',
-  REG_NO: '2023-123456'
-};
-
-async function insertData() {
+async function testConnection() {
   let connection;
 
   try {
-    // Get a connection from the pool
+    // Establish a connection to the database
     connection = await oracledb.getConnection(dbConfig);
 
-    // Prepare the SQL statement
-    const sql = `INSERT INTO C##BUNNYDRIVE.STUDENTDATA
-                (TICKETID, STUDENT_NAME, SEAT_NO, BOOKING_DATE, PAYMENT_STATUS, REG_NO)
-                VALUES
-                (:ticketId, :studentName, :seatNo, :bookingDate, :paymentStatus, :regNo)`;
+    console.log('Connected to Oracle Database');
 
-    // Bind the values
-    const binds = {
-      ticketId: data.TICKETID,
-      studentName: data.STUDENT_NAME,
-      seatNo: data.SEAT_NO,
-      bookingDate: data.BOOKING_DATE,
-      paymentStatus: data.PAYMENT_STATUS,
-      regNo: data.REG_NO
-    };
-
-    // Execute the statement
-    const result = await connection.execute(sql, binds);
-
-    console.log('Data inserted successfully.');
+    // Check if the connection is open
+    if (connection && connection.isConnected()) {
+      console.log('Connection is open');
+    } else {
+      console.log('Connection is not open');
+    }
   } catch (err) {
-    console.error('Error inserting data:', err);
+    console.error('Error connecting to Oracle Database:', err);
   } finally {
     // Release the connection
     if (connection) {
       try {
         await connection.close();
+        console.log('Connection closed');
       } catch (err) {
         console.error('Error closing connection:', err);
       }
@@ -58,5 +38,6 @@ async function insertData() {
   }
 }
 
-// Call the insertData function
-insertData();
+
+
+ 
